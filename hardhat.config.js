@@ -38,10 +38,10 @@ module.exports = {
         localhost: {
         },
         kovan: {
-            url: 'https://eth-kovan.alchemyapi.io/v2/AonPPDhYhLk8jwy1mMqGaAZLZ8LG7zzQ',
-            // accounts: [PRIVATE_KEY],
+            url:'https://eth-kovan.alchemyapi.io/v2/AonPPDhYhLk8jwy1mMqGaAZLZ8LG7zzQ',
+            //accounts: [PRIVATE_KEY],
             accounts: {
-                mnemonic: 'time three exclude entry lucky under anger judge accident stumble hockey prefer',
+                mnemonic: MNEMONIC,
             },
             saveDeployments: true,
         },
