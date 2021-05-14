@@ -1,6 +1,8 @@
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
+
+require('dotenv').config()
 require("@nomiclabs/hardhat-waffle")
 require("@nomiclabs/hardhat-ethers")
 require("@nomiclabs/hardhat-truffle5")
@@ -16,7 +18,8 @@ require("./tasks/price-consumer")
 require("./tasks/api-consumer")
 
 
-require('dotenv').config()
+
+
 
 const MAINNET_RPC_URL = process.env.MAINNET_RPC_URL || process.env.ALCHEMY_MAINNET_RPC_URL || "https://eth-mainnet.alchemyapi.io/v2/your-api-key"
 const RINKEBY_RPC_URL = process.env.RINKEBY_RPC_URL || "https://eth-rinkeby.alchemyapi.io/v2/your-api-key"
@@ -38,10 +41,10 @@ module.exports = {
         localhost: {
         },
         kovan: {
-            url:'https://eth-kovan.alchemyapi.io/v2/AonPPDhYhLk8jwy1mMqGaAZLZ8LG7zzQ',
+            url: KOVAN_RPC_URL,
             //accounts: [PRIVATE_KEY],
             accounts: {
-                mnemonic: MNEMONIC,
+                mnemonic: PRIVATE_KEY,
             },
             saveDeployments: true,
         },
