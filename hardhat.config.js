@@ -28,7 +28,7 @@ const MNEMONIC = process.env.MNEMONIC || "your mnemonic"
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "Your etherscan API key"
 // optional
 const PRIVATE_KEY = process.env.PRIVATE_KEY || "your private key"
-
+console.log('KOVAN',process.env.KOVAN_RPC_URL)
 module.exports = {
     defaultNetwork: "hardhat",
     networks: {
