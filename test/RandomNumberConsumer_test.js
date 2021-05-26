@@ -21,9 +21,11 @@ describe('RandomNumberConsumer', async function () {
     const transaction = await randomNumberConsumer.getRandomNumber(seed)
     const tx_receipt = await transaction.wait()
     const requestId = tx_receipt.events[2].topics[0]
+    
 
     // Test the result of the random number request
-    await vrfCoordinatorMock.callBackWithRandomness(requestId, expected, randomNumberConsumer.address)
+    let result = await vrfCoordinatorMock.callBackWithRandomness(requestId, expected, randomNumberConsumer.address)
     expect(await randomNumberConsumer.randomResult()).to.equal(expected)
+    
   })
 })

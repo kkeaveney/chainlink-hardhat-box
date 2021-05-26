@@ -18,9 +18,6 @@ require("./tasks/price-consumer")
 require("./tasks/api-consumer")
 
 
-
-
-
 const MAINNET_RPC_URL = process.env.MAINNET_RPC_URL || process.env.ALCHEMY_MAINNET_RPC_URL || "https://eth-mainnet.alchemyapi.io/v2/your-api-key"
 const RINKEBY_RPC_URL = process.env.RINKEBY_RPC_URL || "https://eth-rinkeby.alchemyapi.io/v2/your-api-key"
 const KOVAN_RPC_URL = process.env.KOVAN_RPC_URL || "https://eth-kovan.alchemyapi.io/v2/your-api-key"
@@ -28,15 +25,15 @@ const MNEMONIC = process.env.MNEMONIC || "your mnemonic"
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "Your etherscan API key"
 // optional
 const PRIVATE_KEY = process.env.PRIVATE_KEY || "your private key"
-console.log('KOVAN',process.env.KOVAN_RPC_URL)
+
 module.exports = {
     defaultNetwork: "hardhat",
     networks: {
         hardhat: {
-            // // If you want to do some forking, uncomment this
-            // forking: {
-            //   url: MAINNET_RPC_URL
-            // }
+            // If you want to do some forking, uncomment this
+            forking: {
+              url: MAINNET_RPC_URL
+            }
         },
         localhost: {
         },
