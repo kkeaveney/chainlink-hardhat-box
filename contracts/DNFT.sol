@@ -49,7 +49,6 @@ contract dNFT is ERC721, VRFConsumerBase {
     // Creates a new ERC721 mNFT.
     // It is initialized at the third IpfsUri and EigenValue
     function createCollectible() public {
-        console.log('createCollectible');
         uint256 newItemId = tokenCounter;
         string memory initialUri = IpfsUri[2];
         EigenValue initialEigenVal = EigenValue(2);

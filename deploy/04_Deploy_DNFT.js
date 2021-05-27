@@ -5,7 +5,7 @@ module.exports = async ({
     getUnnamedAccounts,
   }) => {
     const { deploy, get } = deployments;
-    const { deployer } = await getNamedAccounts();
+    const { deployer, receiver } = await getNamedAccounts();
 
     const vrfConsumerBase = await get('VRFConsumerBase')
     const linkToken = await get('LinkToken')
