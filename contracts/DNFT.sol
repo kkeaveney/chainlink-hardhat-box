@@ -68,24 +68,32 @@ contract dNFT is ERC721, VRFConsumerBase {
         uint256 tokenId
     ) public override(ERC721) {
         bytes32 requestId =
-        requestRandomness(keyHash, fee, uint32(block.number));
+        requestRandomness(keyHash, fee, tokenId);
         requestIdToTokenId[requestId] = tokenId;
         _transfer(from, to, tokenId);
+        
     }
+
 
     /**
      * Callback function used by VRF Coordinator
      */
-    function fulfillRandomness(bytes32 requestId, uint256 randomNumber)
-        internal
-        override
-    {
-        console.log('randome');
-        uint256 _tokenId = requestIdToTokenId[requestId];
-        uint256 random2 = (randomNumber % 2);
-        EigenValue newEigenVal = EigenValue(random2);
-        string memory newUri = IpfsUri[random2];
-        tokenIdToEigenValue[_tokenId] = newEigenVal;
-        _setTokenURI(_tokenId, newUri);
+//     function fulfillRandomness(bytes32 requestId, uint256 randomNumber)
+//         internal
+//         override
+//     {
+//         console.log('random number');
+//         uint256 _tokenId = requestIdToTokenId[requestId];
+//         uint256 random2 = (randomNumber % 2);
+//         EigenValue newEigenVal = EigenValue(random2);
+//         string memory newUri = IpfsUri[random2];
+//         tokenIdToEigenValue[_tokenId] = newEigenVal;
+//         _setTokenURI(_tokenId, newUri);
+//     }
+// }
+function fulfillRandomness(bytes32 requestId, uint256 randomness) internal override {
+        console.log('fulfillRandomness');
+        //randomResult = randomness;
     }
+    
 }

@@ -30,11 +30,6 @@ module.exports = async ({
             log: true,
             args: [linkToken.address]
         })
-        await deploy('VRFConsumerBase', {
-            from: deployer,
-            log: true,
-            args: [vrfCoordinatorMock.address,linkToken.address]
-        })
         
         log("Mocks Deployed!")
         log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
