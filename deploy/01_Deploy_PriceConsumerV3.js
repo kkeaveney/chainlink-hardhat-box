@@ -9,7 +9,6 @@ module.exports = async ({
     const { deployer } = await getNamedAccounts()
     const chainId = await getChainId()
     let ethUsdPriceFeedAddress
-    console.log(await getNamedAccounts(0))
     if (chainId == 31337) {
         const EthUsdAggregator = await deployments.get('EthUsdAggregator')
         ethUsdPriceFeedAddress = EthUsdAggregator.address

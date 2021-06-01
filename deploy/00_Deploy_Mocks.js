@@ -8,7 +8,7 @@ module.exports = async ({
     const DECIMALS = '18'
     const INITIAL_PRICE = '200000000000000000000'
     const { deploy, log } = deployments
-    const { deployer } = await getNamedAccounts()
+    const { deployer, receiver } = await getNamedAccounts()
     const chainId = await getChainId()
     // If we are on a local development network, we need to deploy mocks!
     if (chainId == 31337) {
@@ -29,11 +29,6 @@ module.exports = async ({
             from: deployer,
             log: true,
             args: [linkToken.address]
-        })
-        await deploy('VRFConsumerBase', {
-            from: deployer,
-            log: true,
-            args: [vrfCoordinatorMock.address,linkToken.address]
         })
         
         log("Mocks Deployed!")
